@@ -53,7 +53,7 @@ final class V20210613182823 extends AbstractMigration
                     amount int,
                     date datetime,  
                     post_id char(13)
-                )
+                );
         ");
     }
 }
