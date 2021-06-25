@@ -4,7 +4,7 @@ namespace IESLaCierva\Application\Post\GetAllPost;
 
 use IESLaCierva\Domain\Post\PostRepository;
 
-class GetAllPost
+class GetAllPostService
 {
     private PostRepository $postRepository;
 
