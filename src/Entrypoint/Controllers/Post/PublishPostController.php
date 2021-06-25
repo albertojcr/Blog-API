@@ -2,7 +2,7 @@
 
 namespace IESLaCierva\Entrypoint\Controllers\Post;
 
-use IESLaCierva\Application\Post\GetAllPost\GetAllPost;
+use IESLaCierva\Application\Post\GetAllPost\GetAllPostService;
 use IESLaCierva\Application\Post\PublishPost\PublishPost;
 use IESLaCierva\Infrastructure\Files\JsonPaymentRepository;
 use IESLaCierva\Infrastructure\Files\JsonPostRepository;
