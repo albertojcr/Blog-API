@@ -7,7 +7,7 @@ getSessionInfo(showSessionInfo);
 getAllPost(renderPostTable);
 getAllUsers(renderUserTable);
 
- let newPostButton = document.getElementById('new-post');
+let newPostButton = document.getElementById('new-post');
 newPostButton.addEventListener('click', showNewPostModal)
 
 let newUserButton = document.getElementById('user-post');
@@ -84,9 +84,11 @@ function doLogin(event) {
     let formData = new FormData(form);
     login(formData,
         () => {
-                    getSessionInfo(showSessionInfo);
+            getSessionInfo(showSessionInfo);
         },
         catchLoginError);
+    console.log(document.querySelector('.btn-close'));
+    document.querySelector('.btn-close').click();
 }
 
 function catchLoginError(error) {
@@ -99,9 +101,15 @@ function catchLoginError(error) {
 }
 
 function login(formData, callback, error) {
+
+    const DATA = `{
+        "email": "${formData.get('email')}",
+        "password": "${formData.get('password')}"
+    }`;
+
     let requestOptions = {
         method: 'POST',
-        body: formData,
+        body: DATA,
         redirect: 'follow'
     };
 
