@@ -7,7 +7,7 @@ use IESLaCierva\Domain\Post\PostRepository;
 use IESLaCierva\Domain\User\Exceptions\UserNotFoundException;
 use IESLaCierva\Domain\User\UserRepository;
 
-class CreatePost
+class CreatePostService
 {
     private PostRepository $postRepository;
     private UserRepository $userRepository;
