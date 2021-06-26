@@ -33,6 +33,8 @@ function showSessionInfo(session) {
         userElement.appendChild(button);
     } else {
         userElement.textContent = `Hello, ${session.name}`;
+        const button = createLogoutButton();
+        userElement.appendChild(button);
     }
 }
 
@@ -46,6 +48,21 @@ function createLoginButton()
     //     getPost(postId, showPostModal)
     // });
     button.textContent = 'Login';
+    button.addEventListener('click', showLoginModal);
+
+    return button;
+}
+
+function createLogoutButton()
+{
+    let button = document.createElement('button');
+    button.setAttribute('data-bs-toggle', "modal");
+    button.setAttribute('data-bs-target', "#post-modal");
+    button.classList.add('btn', 'btn-danger');
+    // button.addEventListener('click', function (event) {
+    //     getPost(postId, showPostModal)
+    // });
+    button.textContent = 'Logout';
     button.addEventListener('click', showLoginModal);
 
     return button;
@@ -87,7 +104,7 @@ function doLogin(event) {
             getSessionInfo(showSessionInfo);
         },
         catchLoginError);
-    console.log(document.querySelector('.btn-close'));
+
     document.querySelector('.btn-close').click();
 }
 
