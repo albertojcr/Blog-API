@@ -36,7 +36,7 @@ class MySqlUserRepository extends AbstractMySqlRepository implements UserReposit
     public function findByEmail(string $email): ?User
     {
         $stmt = $this->connection->prepare('SELECT * FROM user WHERE email = :email ');
-        $stmt->execute(['userId' => $email]);
+        $stmt->execute(['email' => $email]);
 
         if ($stmt->rowCount() === 0) {
             return null;

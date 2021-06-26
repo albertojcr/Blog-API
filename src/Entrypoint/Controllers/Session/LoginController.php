@@ -3,6 +3,7 @@
 namespace IESLaCierva\Entrypoint\Controllers\Session;
 
 
+use IESLaCierva\Infrastructure\Database\MySqlUserRepository;
 use IESLaCierva\Infrastructure\Files\CsvUserRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,10 +14,10 @@ class LoginController
     public function execute(Request $request): Response
     {
 
-        $email = $request->get('email');
-        $password = $request->get('password');
+        $email = $request->toArray()['email'];
+        $password = $request->toArray()['password'];
 
-        $userRepository = new CsvUserRepository();
+        $userRepository = new MySqlUserRepository();
         $user = $userRepository->findByEmail($email);
 
         if ($user === null) {
