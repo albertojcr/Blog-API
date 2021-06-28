@@ -10,7 +10,7 @@ class HomeController
     {
         $response = new Response();
         ob_start();
-        require_once __DIR__.'/../../../public/index2.html';
+        require_once __DIR__.'/../../../public/index.html';
         $response->setContent(ob_get_clean());
         return $response;
     }

@@ -1,0 +1,45 @@
+* {
+    font-family: "Itim", cursive;
+}
+
+nav {
+    background-color: #ff8585;
+}
+
+.card-enabled {
+    cursor: pointer;
+}
+
+.card-disabled {
+    cursor: not-allowed;
+}
+
+img {
+    max-width: 235px;
+    max-height: 300px;
+}
+
+@media (min-width: 992px) {
+    li {
+        background-color: white;
+    }
+
+    .m-lg {
+        margin-right: 1rem;
+    }
+
+    a:hover {
+        color: #ff8585 !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .img-bid {
+        max-height: 150px;
+    }
+
+    .nopad {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}
