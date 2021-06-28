@@ -38,7 +38,35 @@ export function createPostRow(post) {
     return row;
 }
 
+export function createPostCard(post) {
+
+    let card = document.createElement('div');
+    card.classList.add('card', 'mb-3');
+    card.innerHTML = `
+        <div class="row g-0">
+            <div class="card-body">
+                <h5 class="card-title">${post.title}</h5>
+                <p class="card-text fw-light">${post.body}</p>
+                <p class="card-text"><small class="text-muted">Posted by ${post.userId} at ${post.createdAt}</small></p>
+            </div>
+        </div>`;
+
+    return card;
+}
+
 export function renderPostTable(posts) {
+    let cardContainer = document.getElementById('card-container')
+
+    for (let post of posts) {
+        let card = createPostCard(post);
+
+        if (post.status === 'Published') {
+            cardContainer.appendChild(card);
+        }
+    }
+}
+
+export function renderManagePostTable(posts) {
     let postTable = document.getElementById('post-table')
     let postHeadRow = postTable.querySelector('thead')
     let postTableBody = postTable.querySelector('tbody')

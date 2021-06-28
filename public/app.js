@@ -1,9 +1,12 @@
 import {createPost, getAllPost, getPost} from "./js/post/apiClient.js";
-import {renderPostTable, showNewPostModal} from "./js/post/table.js";
+import {renderPostTable, renderManagePostTable, showNewPostModal} from "./js/post/table.js";
 import {getAllUsers} from "./js/user/apiClient.js";
 import {renderUserTable, showNewUserModal} from "./js/user/table.js";
 
 getSessionInfo(showSessionInfo);
+
+getAllPost(renderManagePostTable);
+
 getAllPost(renderPostTable);
 getAllUsers(renderUserTable);
 
