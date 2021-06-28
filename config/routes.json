@@ -18,6 +18,12 @@
     "methods": ["GET"]
   },
   {
+    "name": "get_user_by_email",
+    "path": "/users/email/{userEmail}",
+    "controller": "\\IESLaCierva\\Entrypoint\\Controllers\\User\\GetUserByEmailController::execute",
+    "methods": ["GET"]
+  },
+  {
     "name": "create_user",
     "path": "/users",
     "controller": "\\IESLaCierva\\Entrypoint\\Controllers\\User\\CreateUserController::execute",
