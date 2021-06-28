@@ -55,7 +55,7 @@ export function createPostCard(post) {
 }
 
 export function renderPostTable(posts) {
-    let cardContainer = document.getElementById('card-container')
+    let cardContainer = document.getElementById('card-container');
 
     for (let post of posts) {
         let card = createPostCard(post);
@@ -72,6 +72,7 @@ export function renderManagePostTable(posts) {
     let postTableBody = postTable.querySelector('tbody')
 
     postHeadRow.innerHTML = '<tr><th>id</th><th>Title</th><th>Author</th><th>State</th><th></th></tr>'
+    postTableBody.innerHTML = '';
 
     for (let post of posts) {
         let row = createPostRow(post);
