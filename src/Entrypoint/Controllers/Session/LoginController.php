@@ -29,7 +29,7 @@ class LoginController
         }
 
         $_SESSION['email'] = $email;
-        $_SESSION['role'] = $user->role();
+        $_SESSION['role'] = $user->role()->value();
         $_SESSION['name'] = $user->name();
 
         return new JsonResponse(['ok']);

@@ -13,7 +13,7 @@ class InfoController
         return new JsonResponse([
                 'email' => $_SESSION['email'] ?? null,
                 'role' => $_SESSION['role'] ?? null,
-                'name' => $_SESSION['name'] ?? null,
+                'name' => $_SESSION['name'] ?? null
             ]);
     }
 }
