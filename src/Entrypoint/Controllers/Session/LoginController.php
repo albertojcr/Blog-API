@@ -21,11 +21,11 @@ class LoginController
         $user = $userRepository->findByEmail($email);
 
         if ($user === null) {
-            return new JsonResponse('Invalid email or password');
+            return new JsonResponse(['Invalid email or password'], Response::HTTP_UNAUTHORIZED);
         }
 
         if ($user->password() !== $password) {
-            return new JsonResponse('Invalid email or password');
+            return new JsonResponse(['Invalid email or password'], Response::HTTP_UNAUTHORIZED);
         }
 
         $_SESSION['email'] = $email;
