@@ -1,6 +1,6 @@
-import {createPost, getAllPost, getPost} from "./js/post/apiClient.js";
+import {createPost, getAllPost, getPost, getPostByUserId} from "./js/post/apiClient.js";
 import {renderPostTable, renderManagePostTable, showNewPostModal} from "./js/post/table.js";
-import {getAllUsers} from "./js/user/apiClient.js";
+import {getAllUsers, getUserByEmail} from "./js/user/apiClient.js";
 import {renderUserTable, showNewUserModal} from "./js/user/table.js";
 
 getSessionInfo(showSessionInfo);
@@ -170,7 +170,7 @@ function renderAdminPanelSection() {
 }
 
 function renderMyPostsSection() {
-
+    getMyPosts();
 }
 
 function showLoginModal() {
@@ -258,5 +258,10 @@ function logout() {
         .then(() => location.reload());
 }
 
+function getMyPosts() {
+    let email = getSessionInfo();
+    console.log(email);
 
+    getUserByEmail("alberto@mail.com", console.log(getPostByUserId()));
+}
 

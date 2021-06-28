@@ -9,6 +9,17 @@ export function getUser(userId, callback) {
         .then(post => callback(post))
 }
 
+export function getUserByEmail(userEmail, callback) {
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+
+    fetch("http://localhost:9200/users/email/" + userEmail, requestOptions)
+        .then(response => response.json())
+        .then(user => callback(user.id))
+}
+
 export function getAllUsers(callback) {
     var requestOptions = {
         method: 'GET',
