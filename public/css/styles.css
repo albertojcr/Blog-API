@@ -2,8 +2,23 @@
     font-family: "Itim", cursive;
 }
 
+body {
+    background-color: #f7f7f7;
+}
+
+.ball {
+    position: absolute;
+    border-radius: 100%;
+    opacity: 0.7;
+}
+
+.z-ind {
+    z-index: -1;
+}
+
 nav {
-    background-color: #ff8585;
+    background: rgb(238,174,202);
+    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 .card-enabled {
@@ -29,7 +44,7 @@ img {
     }
 
     a:hover {
-        color: #ff8585 !important;
+        color: rgb(238,174,202) !important;
     }
 }
 
