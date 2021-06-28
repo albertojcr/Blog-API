@@ -56,14 +56,9 @@ function createLoginButton()
 function createLogoutButton()
 {
     let button = document.createElement('button');
-    button.setAttribute('data-bs-toggle', "modal");
-    button.setAttribute('data-bs-target', "#post-modal");
     button.classList.add('btn', 'btn-danger');
-    // button.addEventListener('click', function (event) {
-    //     getPost(postId, showPostModal)
-    // });
     button.textContent = 'Logout';
-    button.addEventListener('click', showLoginModal);
+    button.addEventListener('click', logout);
 
     return button;
 }
@@ -142,6 +137,17 @@ function login(formData, callback, error) {
         .catch(error);
 }
 
+function logout() {
+
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+
+    fetch("http://localhost:9200/logout", requestOptions)
+        .then(response => response.json())
+        .then(() => location.reload());
+}
 
 
 
