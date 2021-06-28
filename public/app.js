@@ -4,8 +4,6 @@ import {getAllUsers} from "./js/user/apiClient.js";
 import {renderUserTable, showNewUserModal} from "./js/user/table.js";
 
 getSessionInfo(showSessionInfo);
-
-
 getAllPost(renderPostTable);
 
 
@@ -163,7 +161,6 @@ function createMyPostsButton() {
 }
 
 function renderAdminPanelSection() {
-    //document.getElementById('admin-panel-nav').addEventListener('click', this.firstChild.classList.add('active'))
     let cardContainer = document.getElementById('card-container');
     cardContainer.classList.add('d-none');
     let adminPanel = document.getElementById('admin-panel');

@@ -42,6 +42,12 @@
     "methods": ["GET"]
   },
   {
+    "name": "get_post_by_user_id",
+    "path": "/posts/user/{userId}",
+    "controller": "\\IESLaCierva\\Entrypoint\\Controllers\\Post\\GetPostByUserIdController::execute",
+    "methods": ["GET"]
+  },
+  {
     "name": "publish_post",
     "path": "/posts/{postId}/publish",
     "controller": "\\IESLaCierva\\Entrypoint\\Controllers\\Post\\PublishPostController::execute",

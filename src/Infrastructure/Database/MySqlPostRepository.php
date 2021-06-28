@@ -63,4 +63,17 @@ class MySqlPostRepository extends AbstractMySqlRepository implements PostReposit
             new Status($data['status'])
         );
     }
+
+    public function findByUserId(string $userId): array
+    {
+        $stmt = $this->connection->prepare('SELECT * FROM post WHERE user_id = :userId ');
+        $stmt->execute(['userId' => $userId]);
+        //$stmt->execute();
+        $posts = [];
+        while ($row = $stmt->fetch()) {
+            $posts[] = $this->hydrate($row);
+        }
+
+        return $posts;
+    }
 }
