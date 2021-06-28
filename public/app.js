@@ -27,16 +27,14 @@ function getSessionInfo(callback) {
 
 function showSessionInfo(session) {
     let userElement = document.getElementById('user-info');
-    //userElement.innerHTML = '';
 
     renderNavbar();
     if (session.email === null) {
-        const button = createLoginButton();
-        userElement.appendChild(button);
+        const loginButton = createLoginButton();
+        userElement.appendChild(loginButton);
     } else {
-        //userElement.textContent = `Hello, ${session.name}`;
-        const button = createLogoutButton();
-        userElement.appendChild(button);
+        const logoutButton = createLogoutButton();
+        userElement.appendChild(logoutButton);
     }
 }
 
@@ -85,10 +83,6 @@ function createLoginButton()
                         </svg>
                         Login
                     </a>`;
-    // button.addEventListener('click', function (event) {
-    //     getPost(postId, showPostModal)
-    // });
-    //button.textContent = 'Login';
     button.addEventListener('click', showLoginModal);
 
     return button;
