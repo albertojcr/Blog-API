@@ -1,4 +1,4 @@
-import {createUser, getUser} from "./apiClient.js";
+import {createUser, getAllUsers, getUser} from "./apiClient.js";
 
 function createViewButton(userId) {
     let button = document.createElement('button');
@@ -77,7 +77,8 @@ function submitNewUser(event) {
     event.preventDefault();
     let form = document.getElementById('new-user-form');
     let formData = new FormData(form);
-    createUser(formData, addNewUserRow);
+    createUser(formData, addNewUserRow); //createUser debe devolver el userId y no lo hace
+    getAllUsers(renderUserTable);
 }
 
 export function showNewUserModal() {
