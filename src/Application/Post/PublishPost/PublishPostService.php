@@ -9,7 +9,7 @@ use IESLaCierva\Domain\Payment\ValueObject\Amount;
 use IESLaCierva\Domain\Post\Exceptions\PostNotFound;
 use IESLaCierva\Domain\Post\PostRepository;
 
-class PublishPost
+class PublishPostService
 {
     private PostRepository $postRepository;
     private PaymentRepository $paymentRepository;

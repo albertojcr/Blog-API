@@ -2,10 +2,9 @@
 
 namespace IESLaCierva\Entrypoint\Controllers\Post;
 
-use IESLaCierva\Application\Post\GetAllPost\GetAllPostService;
-use IESLaCierva\Application\Post\PublishPost\PublishPost;
-use IESLaCierva\Infrastructure\Files\JsonPaymentRepository;
-use IESLaCierva\Infrastructure\Files\JsonPostRepository;
+use IESLaCierva\Application\Post\PublishPost\PublishPostService;
+use IESLaCierva\Infrastructure\Database\MySqlPaymentRepository;
+use IESLaCierva\Infrastructure\Database\MySqlPostRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +13,7 @@ class PublishPostController
 {
     public function execute(Request $request): Response
     {
-        $service = new PublishPost(new JsonPostRepository(), new JsonPaymentRepository());
+        $service = new PublishPostService(new MySqlPostRepository(), new MySqlPaymentRepository());
         $service->execute($request->get('postId'));
         return new Response(null, Response::HTTP_NO_CONTENT);
     }
