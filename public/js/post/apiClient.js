@@ -44,9 +44,15 @@ export function publishPost(postId, callback) {
 }
 
 export function createPost(formData, callback) {
+    let data = `{
+        "title": "${formData.get('title')}",
+        "body": "${formData.get('body')}",
+        "userId": "${formData.get('userId')}"
+    }`;
+
     let requestOptions = {
         method: 'POST',
-        body: formData,
+        body: data,
         redirect: 'follow'
     };
 
