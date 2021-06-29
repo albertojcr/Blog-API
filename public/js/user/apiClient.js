@@ -17,7 +17,7 @@ export function getUserByEmail(userEmail, callback) {
 
     fetch("http://localhost:9200/users/email/" + userEmail, requestOptions)
         .then(response => response.json())
-        .then(user => callback(user.id))
+        .then(callback);
 }
 
 export function getAllUsers(callback) {

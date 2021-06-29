@@ -9,16 +9,15 @@ export function getPost(postId, callback) {
         .then(post => callback(post))
 }
 
-export function getPostByUserId(userId) {
+export function getPostByUserId(userId, callback) {
     var requestOptions = {
         method: 'GET',
         redirect: 'follow'
     };
 
     fetch("http://localhost:9200/posts/user/" + userId, requestOptions)
-        .then(function (response) {
-            return response.json();
-        })
+        .then(response => response.json())
+        .then(callback);
 }
 
 export function getAllPost(callback) {
