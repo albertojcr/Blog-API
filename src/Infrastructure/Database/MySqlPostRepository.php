@@ -38,14 +38,14 @@ class MySqlPostRepository extends AbstractMySqlRepository implements PostReposit
     public function save(Post $post): void
     {
         $stmt = $this->connection->prepare('REPLACE INTO post(id, title, body, user_id, status, created_at)
-                VALUES (:id, :title, :body, :user_id, :status, :created_at,)');
+                VALUES (:id, :title, :body, :user_id, :status, :created_at)');
 
         $stmt->execute(
             [
                 'id' => $post->postId(),
                 'title' => $post->title(),
                 'body' => $post->body(),
-                'created_at' => $post->createdAt()->value(),
+                'created_at' => $post->createdAt()->format('Y-m-d H:i:s'),
                 'user_id' => $post->authorId(),
                 'status' => $post->state()->value()
             ]
