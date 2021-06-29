@@ -50,7 +50,7 @@ final class V20210613182823 extends AbstractMigration
                 (
                     id char(13) not null,
                     user_id char(13) not null,
-                    amount int,
+                    amount float,
                     date datetime,  
                     post_id char(13)
                 );
