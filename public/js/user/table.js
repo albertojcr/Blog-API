@@ -47,7 +47,7 @@ export function renderUserTable(users) {
 
     for (let user of users) {
         let row = createUserRow(user);
-        userTableBody.appendChild(row);
+        userTableBody.insertBefore(row, userTableBody.firstChild);
     }
 }
 
@@ -65,7 +65,7 @@ function addNewUserRow(user) {
 
     getUser(userId, (user) => {
         let tableBody = document.querySelector('tbody');
-        tableBody.appendChild(createUserRow(user));
+        tableBody.insertBefore(createUserRow(user), tableBody.firstChild);
     })
 
     const buttonClose = document.querySelector('.btn-close');

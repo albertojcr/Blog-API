@@ -63,7 +63,7 @@ export function renderPostTable(posts) {
         let card = createPostCard(post);
 
         if (post.status === 'Published') {
-            cardContainer.appendChild(card);
+            cardContainer.insertBefore(card, cardContainer.firstChild);
         }
     }
 }
@@ -79,7 +79,7 @@ export function renderManagePostTable(posts) {
     for (let post of posts) {
         let row = createPostRow(post);
 
-        postTableBody.appendChild(row);
+        postTableBody.insertBefore(row, postTableBody.firstChild);
     }
 
     let buttons = document.getElementsByClassName('view-post');
@@ -125,7 +125,7 @@ function addNewPostRow(post) {
 
     getPost(postId, (post) => {
         let tableBody = document.querySelector('tbody');
-        tableBody.appendChild(createPostRow(post));
+        tableBody.insertBefore(createPostRow(post), tableBody.firstChild);
     })
 
     const buttonClose = document.querySelector('.btn-close');
