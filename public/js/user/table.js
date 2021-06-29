@@ -92,7 +92,7 @@ export function showNewUserModal() {
                         <input type="text" name="name" class="form-control" id="user-title">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="user-title">email</label>
+                        <label class="form-label" for="user-title">Email</label>
                         <input type="text" name="email" class="form-control" id="user-title">
                     </div>
                     <div class="mb-3">
