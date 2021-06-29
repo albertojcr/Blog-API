@@ -17,7 +17,7 @@ class CreatePostController
     {
         $data = json_decode($request->getContent(), true);
         $service = new CreatePostService(new MySqlPostRepository(), new MySqlUserRepository());
-        $newPost = $service->execute($request->get('title'), $request->get('body'), $request->get('userId'));
+        $newPost = $service->execute($data['title'], $data['body'], $data['userId']);
 
         return new JsonResponse(['postId' => $newPost->postId()], Response::HTTP_CREATED);
     }
