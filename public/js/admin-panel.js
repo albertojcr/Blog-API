@@ -2,6 +2,8 @@ import {getAllPost} from "./post/apiClient.js";
 import {renderManagePostTable, showNewPostModal} from "./post/table.js";
 import {getAllUsers} from "./user/apiClient.js";
 import {renderUserTable, showNewUserModal} from "./user/table.js";
+import {getAllPayment} from "./payment/apiClient.js";
+import {renderManagePaymentTable} from "./payment/table.js";
 
 getSessionInfo(function (session) {
     if(session.email === null) {
@@ -12,6 +14,7 @@ getSessionInfo(function (session) {
 //getSessionInfo(renderNavbarButtons);
 getAllPost(renderManagePostTable);
 getAllUsers(renderUserTable);
+getAllPayment(renderManagePaymentTable);
 
 let newPostButton = document.getElementById('new-post');
 newPostButton.addEventListener('click', showNewPostModal);

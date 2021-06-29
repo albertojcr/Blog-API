@@ -76,5 +76,11 @@
     "path": "/logout",
     "controller": "\\IESLaCierva\\Entrypoint\\Controllers\\Session\\LogoutController::execute",
     "methods": ["GET"]
+  },
+  {
+    "name": "get_all_payments",
+    "path": "/payments",
+    "controller": "\\IESLaCierva\\Entrypoint\\Controllers\\Payment\\GetAllPaymentController::execute",
+    "methods": ["GET"]
   }
 ]

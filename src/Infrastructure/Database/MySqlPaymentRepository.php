@@ -9,6 +9,17 @@ use IESLaCierva\Domain\Payment\ValueObject\Amount;
 
 class MySqlPaymentRepository extends AbstractMySqlRepository implements PaymentRepository
 {
+    public function findAll(): array
+    {
+        $stmt = $this->connection->prepare('SELECT * FROM payment');
+        $stmt->execute();
+        $payments = [];
+        while ($row = $stmt->fetch()) {
+            $payments[] = $this->hydrate($row);
+        }
+
+        return $payments;
+    }
 
     public function findById(string $paymentId): ?Payment
     {
@@ -77,4 +88,5 @@ class MySqlPaymentRepository extends AbstractMySqlRepository implements PaymentR
             $data['post_id']
         );
     }
+
 }

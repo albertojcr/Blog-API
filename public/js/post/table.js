@@ -192,7 +192,7 @@ export function showNewPostModal() {
                     </div>
                     <input type="hidden" id="user-id-input" name="userId" value="">
                     <button type="submit" id="submit-new-post" class="btn btn-primary">Submit</button>
-                </form>`
+                </form>`;
 
     let submitNewPostButton = document.getElementById('submit-new-post');
     submitNewPostButton.addEventListener('click', submitNewPost);

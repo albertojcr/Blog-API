@@ -4,6 +4,8 @@ namespace IESLaCierva\Domain\Payment;
 
 interface PaymentRepository
 {
+    public function findAll(): array;
+
     public function findById(string $paymentId): ?Payment;
 
     public function findByAuthor(string $authorId): array;

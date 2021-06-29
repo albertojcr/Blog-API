@@ -12,7 +12,7 @@ class Payment implements \JsonSerializable
     private \DateTimeImmutable $paymentDate;
     private string $postId;
 
-    public function __construct(string $paymentId, string $authorId, string $postId, Amount $amount, \DateTimeImmutable $paymentDate)
+    public function __construct(string $paymentId, string $authorId, Amount $amount, \DateTimeImmutable $paymentDate, string $postId)
     {
 
         $this->paymentId = $paymentId;
