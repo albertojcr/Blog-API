@@ -224,12 +224,13 @@ function doLogin(event) {
     let form = document.getElementById('login-form');
     let formData = new FormData(form);
     login(formData,
-        () => {
+        (callback) => {
+            if (callback !== undefined) {
+                document.querySelector('.btn-close').click();
+            }
             getSessionInfo(renderNavbarButtons);
         },
         catchLoginError);
-
-    document.querySelector('.btn-close').click();
 }
 
 function catchLoginError(error) {
