@@ -25,7 +25,7 @@ function getUserPosts(session) {
     }
 }
 
-function getSessionInfo(callback) {
+export function getSessionInfo(callback) {
     var requestOptions = {
         method: 'GET',
         redirect: 'follow'

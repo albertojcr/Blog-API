@@ -1,4 +1,6 @@
-import {createPost, getPost, publishPost} from "./apiClient.js";
+import {createPost, getPost, getPostByUserId, publishPost} from "./apiClient.js";
+import {getSessionInfo} from "../../app.js";
+import {getUserByEmail} from "../user/apiClient.js";
 
 function createViewButton(postId) {
     let button = document.createElement('button');
@@ -153,10 +155,22 @@ export function showNewPostModal() {
                         <label class="form-label" for="post-body">Body</label>
                         <textarea name="body" class="form-control" id="post-body" cols="30" rows="10"></textarea>
                     </div>
-                    <input type="hidden" name="userId" value="772fc60b194f3">
+                    <input type="hidden" id="user-id-input" name="userId" value="">
                     <button type="submit" id="submit-new-post" class="btn btn-primary">Submit</button>
                 </form>`
 
     let submitNewPostButton = document.getElementById('submit-new-post');
     submitNewPostButton.addEventListener('click', submitNewPost);
+    getSessionInfo(getCurrentUserId);
+}
+
+function getCurrentUserId(session) {
+    getUserByEmail(session.email, function (user) {
+        setCurrentUserIdNewPostForm(user.id);
+    });
+}
+
+function setCurrentUserIdNewPostForm(userId) {
+    let input = document.getElementById('user-id-input');
+    input.setAttribute('value', userId);
 }
