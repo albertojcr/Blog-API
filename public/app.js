@@ -2,28 +2,29 @@ import {createPost, getAllPost, getPost, getPostByUserId} from "./js/post/apiCli
 import {renderPostTable, renderManagePostTable, showNewPostModal} from "./js/post/table.js";
 import {getAllUsers, getUserByEmail} from "./js/user/apiClient.js";
 import {renderUserTable, showNewUserModal} from "./js/user/table.js";
+import {renderNavbarButtons} from "./js/navbar.js";
 
 getSessionInfo(renderNavbarButtons);
 getAllPost(renderPostTable);
 
-let newPostButton = document.getElementById('new-post');
-newPostButton.addEventListener('click', showNewPostModal);
+// let newPostButton = document.getElementById('new-post');
+// newPostButton.addEventListener('click', showNewPostModal);
 
-let newUserButton = document.getElementById('user-post');
-newUserButton.addEventListener('click', showNewUserModal);
+// let newUserButton = document.getElementById('user-post');
+// newUserButton.addEventListener('click', showNewUserModal);
 
-getSessionInfo(getUserPosts);
+// getSessionInfo(getUserPosts);
 
-function getUserPosts(session) {
-
-    if (session.email !== null) {
-        getUserByEmail(session.email, function (user) {
-            getPostByUserId(user.id, function (posts) {
-                console.log(posts);
-            });
-        });
-    }
-}
+// function getUserPosts(session) {
+//
+//     if (session.email !== null) {
+//         getUserByEmail(session.email, function (user) {
+//             getPostByUserId(user.id, function (posts) {
+//                 console.log(posts);
+//             });
+//         });
+//     }
+// }
 
 export function getSessionInfo(callback) {
     var requestOptions = {
@@ -35,7 +36,7 @@ export function getSessionInfo(callback) {
         .then(response => response.json())
         .then(callback);
 }
-
+/*
 function renderNavbarButtons(session) {
     let userElement = document.getElementById('user-info');
     userElement.innerHTML = '';
@@ -179,8 +180,8 @@ function createMyPostsButton() {
 
     return button;
 }
-
-function renderAdminPanelSection() {
+*/
+export function renderAdminPanelSection() {
     let cardContainer = document.getElementById('card-container');
     cardContainer.classList.add('d-none');
     let adminPanel = document.getElementById('admin-panel');
@@ -189,11 +190,11 @@ function renderAdminPanelSection() {
     getAllUsers(renderUserTable);
 }
 
-function renderMyPostsSection() {
+export function renderMyPostsSection() {
 
 }
 
-function showLoginModal() {
+export function showLoginModal() {
     let modalTitle = document.querySelector('.modal-title');
     let modalBody = document.querySelector('.modal-body');
 
@@ -208,7 +209,7 @@ function showLoginModal() {
                         <label class="form-label" for="user-title">Password</label>
                         <input type="password" name="password" class="form-control" id="login-password">
                     </div>
-                    <div id="login-error"></div>
+                    <div id="login-error" class="text-danger mb-3"></div>
                     <button  id="submit-login" class="btn btn-primary">Login</button>
                 </form>`
 
@@ -267,7 +268,7 @@ function login(formData, callback, error) {
         .catch(error);
 }
 
-function logout() {
+export function logout() {
 
     var requestOptions = {
         method: 'GET',

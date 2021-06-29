@@ -32,6 +32,12 @@ export function createPostRow(post) {
     let cell5 = document.createElement('td');
     cell5.appendChild(button);
 
+    if (post.status === 'Published') {
+        cell4.classList.add('text-success');
+    } else {
+        cell4.classList.add('text-warning');
+    }
+
     row.appendChild(cell1);
     row.appendChild(cell2)
     row.appendChild(cell3)
@@ -50,6 +56,7 @@ export function createPostCard(post) {
                 <h5 class="card-title">${post.title}</h5>
                 <p class="card-text fw-light">${post.body}</p>
                 <p class="card-text"><small class="text-muted">Posted by ${post.userId} at ${post.createdAt}</small></p>
+                <p class="post-status float-end mb-0"></p>
             </div>
         </div>`;
 
@@ -66,6 +73,34 @@ export function renderPostTable(posts) {
             cardContainer.insertBefore(card, cardContainer.firstChild);
         }
     }
+    let title = document.createElement('h1');
+    title.classList.add('text-center', 'mb-3');
+    title.textContent = 'Latest posts';
+    cardContainer.insertBefore(title, cardContainer.firstChild);
+}
+
+export function renderUserPostsTable(posts) {
+    let cardContainer = document.getElementById('card-container');
+    cardContainer.innerHTML = '';
+
+    for (let post of posts) {
+        let card = createPostCard(post);
+        let cardStatusParagraph = card.getElementsByClassName('post-status')[0];
+        if (post.status === 'Published') {
+            cardStatusParagraph.classList.add('text-success');
+            cardStatusParagraph.textContent = 'Published';
+        } else {
+            cardStatusParagraph.classList.add('text-warning');
+            cardStatusParagraph.textContent = 'Pending';
+        }
+
+        cardContainer.insertBefore(card, cardContainer.firstChild);
+    }
+
+    let title = document.createElement('h1');
+    title.classList.add('text-center', 'mb-3');
+    title.textContent = 'My posts';
+    cardContainer.insertBefore(title, cardContainer.firstChild);
 }
 
 export function renderManagePostTable(posts) {
@@ -73,7 +108,7 @@ export function renderManagePostTable(posts) {
     let postHeadRow = postTable.querySelector('thead')
     let postTableBody = postTable.querySelector('tbody')
 
-    postHeadRow.innerHTML = '<tr><th>id</th><th>Title</th><th>Author</th><th>State</th><th></th></tr>'
+    postHeadRow.innerHTML = '<tr><th>ID</th><th>Title</th><th>Author</th><th>State</th><th></th></tr>'
     postTableBody.innerHTML = '';
 
     for (let post of posts) {

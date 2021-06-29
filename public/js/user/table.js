@@ -42,7 +42,7 @@ export function renderUserTable(users) {
     let userHeadRow = userTable.querySelector('thead')
     let userTableBody = userTable.querySelector('tbody')
 
-    userHeadRow.innerHTML = '<tr><th>id</th><th>name</th><th>email</th><th>role</th><th></th></tr>'
+    userHeadRow.innerHTML = '<tr><th>ID</th><th>Name</th><th>Email</th><th>Role</th><th></th></tr>'
     userTableBody.innerHTML = '';
 
     for (let user of users) {
