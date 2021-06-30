@@ -1,6 +1,6 @@
-# Repositorio de prácticas de FP Dual
+# Blog-API
 
-Este repositorio sirve de base para las prácticas del curso de FP Dual de Desarrollo de aplicaciones informáticas
+Este repositorio contiene la práctica del blog organizada por capas.
 
 ## Instalación
 
@@ -9,7 +9,14 @@ Este repositorio sirve de base para las prácticas del curso de FP Dual de Desar
 make start
 ```
 
-Una vez instalada la aplicación y descargado y levantados los contenedores docker se puede acceder al controlador de ejemplo mediante la siguiente URL
+Desde PHPMyAdmin creamos la database 'posts'. Migramos las tablas y cargamos datos de prueba ejecutando:
+```
+make bash
+vendor/bin/phinx migrate
+vendor/bin/phinx seed:run
+```
+
+Una vez instalada la aplicación y descargado y levantados los contenedores docker se puede acceder mediante la siguiente URL:
 ```
 http://localhost:9200/home
 ```
@@ -19,11 +26,15 @@ Se puede acceder a la instancia de PHPMyAdmin a través de la siguiente URL
 ```
 http://localhost:9283
 ```
+
 ## Comandos
 
 ### make up
 Levanta los contenedores docker
 
-### make shell
+### make down
+Detiene los contenedores docker
+
+### make bash
 Ejecuta la consola en el contenedor php
 
