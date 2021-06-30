@@ -7,13 +7,8 @@ Este repositorio contiene la práctica del blog organizada por capas.
 
 ```shell
 make start
-```
-
-Migramos las tablas a la database 'posts' y cargamos datos de prueba ejecutando:
-```
-make bash
-vendor/bin/phinx migrate
-vendor/bin/phinx seed:run
+make phinx_migrate
+make phinx_fixtures
 ```
 
 Una vez instalada la aplicación y descargado y levantados los contenedores docker se puede acceder mediante la siguiente URL:
