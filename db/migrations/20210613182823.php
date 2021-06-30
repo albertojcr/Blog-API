@@ -18,9 +18,9 @@ final class V20210613182823 extends AbstractMigration
      */
     public function change(): void
     {
-        $this->execute('create schema posts;');
+        //$this->execute('create schema posts;');
 
-        $this->execute('use posts;');
+        //$this->execute('use posts;');
 
         $this->execute("
             CREATE TABLE user
