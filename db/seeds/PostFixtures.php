@@ -25,7 +25,8 @@ class PostFixtures extends AbstractSeed
                 'title' => $faker->realText(50),
                 'body' => $faker->realText(300),
                 'user_id' =>  $faker->randomElement(array_column($userIds, 'id')),
-                'status' => $faker->randomElement([Status::PUBLISHED, Status::PENDING])
+                'status' => $faker->randomElement([Status::PUBLISHED, Status::PENDING]),
+                'created_at' => $faker->dateTimeBetween('-2 years','now', 'Europe/Madrid')->format(DATE_ATOM)
             ];
 
         }
