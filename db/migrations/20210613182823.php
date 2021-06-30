@@ -18,7 +18,9 @@ final class V20210613182823 extends AbstractMigration
      */
     public function change(): void
     {
-//        $this->execute('create schema posts;');
+        $this->execute('create schema posts;');
+
+        $this->execute('use posts;');
 
         $this->execute("
             CREATE TABLE user
@@ -41,7 +43,9 @@ final class V20210613182823 extends AbstractMigration
                     body text null,
                     user_id char(13) null,
                     status varchar(255) null,
-                    created_at datetime null
+                    created_at datetime null,
+                    constraint post_pk
+                        primary key (id)
                 );
         ");
 
@@ -52,7 +56,9 @@ final class V20210613182823 extends AbstractMigration
                     user_id char(13) not null,
                     amount float,
                     date datetime,  
-                    post_id char(13)
+                    post_id char(13),
+                    constraint payment_pk
+                        primary key (id)
                 );
         ");
     }
