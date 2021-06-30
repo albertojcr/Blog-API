@@ -20,6 +20,7 @@ http://localhost:9200/home
 Se puede acceder a la instancia de PHPMyAdmin a través de la siguiente URL
 ```
 http://localhost:9283
+
 user: testuser
 password: admin1234
 ```
