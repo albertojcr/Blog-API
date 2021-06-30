@@ -27,9 +27,9 @@ class Payment implements \JsonSerializable
         return new self(
             uniqid(),
             $author,
-            $postId,
             $amount,
-            new \DateTimeImmutable()
+            new \DateTimeImmutable(),
+            $postId
         );
     }
 
