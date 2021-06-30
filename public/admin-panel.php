@@ -62,7 +62,7 @@
                     </table>
                 </div>
             </div>
-            <div class="tab-pane fade" id="payments" role="tabpanel" aria-labelledby="payments-tab">
+            <div class="tab-pane fade mt-4" id="payments" role="tabpanel" aria-labelledby="payments-tab">
                 <div>
                     <table id="payment-table" class="table">
                         <thead></thead>
