@@ -1,5 +1,4 @@
 export function createPaymentRow(payment) {
-    console.log(payment);
     let row = document.createElement('tr');
     row.setAttribute('id', 'payment-id-' + payment.id);
     let cell1 = document.createElement('td');
