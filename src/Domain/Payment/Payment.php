@@ -22,7 +22,7 @@ class Payment implements \JsonSerializable
         $this->postId = $postId;
     }
 
-    public static function create(string $author, string $postId, Amount $amount)
+    public static function create(string $author, string $postId, Amount $amount): Payment
     {
         return new self(
             uniqid(),
@@ -58,10 +58,10 @@ class Payment implements \JsonSerializable
         return $this->postId;
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return [
-            'id' => $this->postId(),
+            'id' => $this->paymentId(),
             'amount' => $this->amount()->value(),
             'createdAt' => $this->paymentDate()->format(DATE_ATOM),
             'userId' => $this->authorId(),
