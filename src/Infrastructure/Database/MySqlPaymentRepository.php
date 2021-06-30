@@ -72,7 +72,7 @@ class MySqlPaymentRepository extends AbstractMySqlRepository implements PaymentR
                 'id' => $payment->paymentId(),
                 'user_id' => $payment->authorId(),
                 'amount' => $payment->amount()->value(),
-                'date' => $payment->paymentDate()->format('Y-m-d H:i:s'),
+                'date' => $payment->paymentDate()->format(DATE_ATOM),
                 'post_id' => $payment->postId()
             ]
         );
