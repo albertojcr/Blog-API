@@ -14,11 +14,12 @@ export function renderNavbarButtons(session) {
         userElement.appendChild(createNewPostButton());
         if (session.role === 'Administrador') {
             userElement.appendChild(createMyAccountButton());
-            var dropdownMenu = document.getElementById('dropdown-menu');
+            let dropdownMenu = document.getElementById('dropdown-menu');
             dropdownMenu.appendChild(createAdminPanelButton());
         } else {
             userElement.appendChild(createMyAccountButton());
         }
+        let dropdownMenu = document.getElementById('dropdown-menu');
         dropdownMenu.appendChild(createMyPostsButton());
         dropdownMenu.appendChild(createLogoutButton());
     }
