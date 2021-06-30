@@ -9,7 +9,7 @@ Este repositorio contiene la práctica del blog organizada por capas.
 make start
 ```
 
-Desde PHPMyAdmin creamos la database 'posts'. Migramos las tablas y cargamos datos de prueba ejecutando:
+Migramos las tablas a la database 'posts' y cargamos datos de prueba ejecutando:
 ```
 make bash
 vendor/bin/phinx migrate
@@ -25,6 +25,8 @@ http://localhost:9200/home
 Se puede acceder a la instancia de PHPMyAdmin a través de la siguiente URL
 ```
 http://localhost:9283
+user: testuser
+password: admin1234
 ```
 
 ## Comandos
